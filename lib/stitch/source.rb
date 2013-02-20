@@ -7,14 +7,20 @@ module Stitch
     #   sources = Source.from_path("./app")
     #
     def self.from_path(root, path = nil, result = [])
+      puts "root #{root}"
+
       path ||= root
       path = Pathname.new(path)
 
+      puts "15 #{path}"
       if path.directory?
+        puts 'children'
         path.children.each do |child|
+          puts 'Recursively'
           from_path(root, child, result)
         end
       else
+        puts 'file #{root} #{path}'
         source = self.new(root, path)
         result << source if source.valid?
       end
