@@ -42,17 +42,15 @@ module Stitch
           Source.from_path(path)
         }.flatten
 
-        puts 43
-        puts @files
-        puts 'files'
+        puts 49
+        puts sources
+        puts 'sources'
+
 
         sources |= @files.map {|file|
           Source.from_file(@root, file)
         }.flatten
 
-        puts 49
-        puts sources
-        puts 'sources'
 
         sources.uniq!
 
