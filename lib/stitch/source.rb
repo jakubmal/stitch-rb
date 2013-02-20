@@ -20,8 +20,9 @@ module Stitch
           from_path(root, child, result)
         end
       else
-        puts 'file #{root} #{path}'
+        puts "file #{root} #{path}"
         source = self.new(root, path)
+        puts "source #{source} #{source.valid?}"
         result << source if source.valid?
       end
 
