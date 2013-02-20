@@ -41,7 +41,12 @@ module Stitch
           Source.from_file(@root, file)
         }.flatten
 
+        puts sources
+
         sources.uniq!
+
+        puts sources
+
 
         if sources.any?
           stitch(sources)
@@ -54,7 +59,9 @@ module Stitch
         modules    = modules
 
         template = File.read(File.join(File.dirname(__FILE__), "stitch.js.erb"))
+        puts template
         template = ERB.new(template)
+        puts template
         template.result(binding)
       end
   end
