@@ -20,7 +20,9 @@ module Stitch
     end
 
     def compile
+      puts 23
       [compile_dependencies, compile_sources].join("\n")
+      puts 25
     end
 
     protected
@@ -33,6 +35,8 @@ module Stitch
       end
 
       def compile_sources
+        puts 'compile_sources called'
+
         sources = @paths.map {|path|
           Source.from_path(path)
         }.flatten
