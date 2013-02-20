@@ -20,6 +20,7 @@ module Stitch
       def for_extension(extension)
         extension.gsub!(/^\./, "")
         all.find do |item|
+          puts "#{extension} #{item.extensions.include?(extension)}"
           item.extensions.include?(extension)
         end
       end
