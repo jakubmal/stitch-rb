@@ -7,11 +7,16 @@ module Stitch
     #   sources = Source.from_path("./app")
     #
     def self.from_path(root, path = nil, result = [])
+      puts root
       path ||= root
+      puts path
       path = Pathname.new(path)
+      puts path
 
       if path.directory?
+        puts 'children'
         path.children.each do |child|
+          puts child
           from_path(root, child, result)
         end
       else
